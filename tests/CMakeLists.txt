@@ -99,6 +99,7 @@ if (UNIX
     add_subdirectory(mbed)
     add_subdirectory(ocall-create)
     add_subdirectory(oeedger8r)
+    add_subdirectory(openssl)
     add_subdirectory(print)
     add_subdirectory(props)
     add_subdirectory(qeidentity)

@@ -32,3 +32,6 @@
 # use different bench files on different host OS and let git ignore it.
 /tests/print/results/**           -text -eol
 /tests/libcxxrt/results/**        -text -eol
+
+# The test files are required to have LFs.
+/tests/openssl/test_data/**       text eol=lf
