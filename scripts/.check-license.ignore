@@ -27,6 +27,7 @@ tests/libcxx/tests\..*$
 tests/libcxxrt/tests\..*$
 tests/libunwind/tests\..*$
 tests/mbed/tests\..*$
+tests/openssl/tests\..*$
 
 # Directories
 3rdparty/dlmalloc/dlmalloc/.*
@@ -42,6 +43,7 @@ tests/mbed/tests\..*$
 3rdparty/optee/optee_client/.*
 3rdparty/optee/optee_os/.*
 3rdparty/sgxsdk/include/.*
+3rdparty/openssl/openssl/.*
 devex/vsextension/ItemTemplates/.*
 devex/vsextension/ProjectTemplates/.*
 tools/oeedger8r-cpp/*
@@ -60,6 +62,7 @@ docs/*
 3rdparty/optee/optee_client
 3rdparty/optee/optee_os
 3rdparty/snmalloc
+3rdparty/openssl/openssl
 cmake/NuGetDescription.txt
 cmake/HostVerifyNuGetDescription.txt
 devex/vscode-extension/.vscodeignore
@@ -88,6 +91,7 @@ tests/str/test1\.txt
 tools/oesign/getopt\.h
 tools/oesign/getopt_long\.c
 tests/host_verify/data/.*
+tests/openssl/test_data/.*
 
 # The following files use the BSD license.
 scripts/lvi-mitigation/lvi-mitigation.py

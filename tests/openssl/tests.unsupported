@@ -1,0 +1,23 @@
+# Trigger abort, always failed.
+../../3rdparty/openssl/openssl/test/aborttest.c
+# Require localtime, which is not supported.
+../../3rdparty/openssl/openssl/test/asn1_time_test.c
+# Require fork, which is not supported.
+../../3rdparty/openssl/openssl/test/drbgtest.c
+# Disable the stress test that takes too long to finish.
+../../3rdparty/openssl/openssl/test/ecstresstest.c
+# Not supported by opensl v1.1.1. Fixed by https://github.com/openssl/openssl/pull/10337.
+../../3rdparty/openssl/openssl/test/ssl_ctx_test.c
+# Failed with stress test (malloc failed)
+../../3rdparty/openssl/openssl/test/lhash_test.c
+# Require openssl libapp.a, which is not included by OE.
+../../3rdparty/openssl/openssl/test/uitest.c
+# Require getservbyname, which is not supported.
+../../3rdparty/openssl/openssl/test/ssltest_old.c
+# SECMEM is disabled.
+../../3rdparty/openssl/openssl/test/secmemtest.c
+# GOST engine is not supported.
+../../3rdparty/openssl/openssl/test/gosttest.c
+# Fail with input files evpkdf.txt and evppbe.txt because of insufficient heap size.
+# Pass with heap size = 8192 pages.
+../../3rdparty/openssl/openssl/test/evp_test.c

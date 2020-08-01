@@ -52,7 +52,9 @@ set(PLATFORM_SRC "")
 if (OE_SGX)
   list(APPEND PLATFORM_SRC sgx/arc4random.c)
 else ()
-  list(APPEND PLATFORM_SRC
+  list(
+    APPEND
+    PLATFORM_SRC
     ${MUSLSRC}/math/exp2l.c
     ${MUSLSRC}/string/memcpy.c
     ${MUSLSRC}/string/memmove.c
@@ -81,6 +83,7 @@ add_enclave_library(
   malloc.c
   pthread.c
   sched_yield.c
+  secure_getenv.c
   sigaction.c
   signal.c
   stdlib.c
@@ -450,7 +453,10 @@ add_enclave_library(
   ${MUSLSRC}/misc/ioctl.c
   ${MUSLSRC}/misc/nftw.c
   ${MUSLSRC}/misc/uname.c
+  ${MUSLSRC}/mman/madvise.c
   ${MUSLSRC}/mman/mmap.c
+  ${MUSLSRC}/mman/mlock.c
+  ${MUSLSRC}/mman/mprotect.c
   ${MUSLSRC}/mman/munmap.c
   ${MUSLSRC}/multibyte/btowc.c
   ${MUSLSRC}/multibyte/c16rtomb.c
@@ -479,6 +485,7 @@ add_enclave_library(
   ${MUSLSRC}/network/ntohs.c
   ${MUSLSRC}/network/htonl.c
   ${MUSLSRC}/network/htons.c
+  ${MUSLSRC}/network/h_errno.c
   ${MUSLSRC}/network/inet_ntop.c
   ${MUSLSRC}/network/inet_addr.c
   ${MUSLSRC}/network/inet_aton.c
@@ -546,6 +553,7 @@ add_enclave_library(
   ${MUSLSRC}/search/tsearch.c
   ${MUSLSRC}/search/twalk.c
   ${MUSLSRC}/stat/stat.c
+  ${MUSLSRC}/stat/__xstat.c
   ${MUSLSRC}/stdio/asprintf.c
   ${MUSLSRC}/stdio/asprintf.c
   ${MUSLSRC}/stdio/clearerr.c
@@ -755,9 +763,15 @@ add_enclave_library(
   ${MUSLSRC}/temp/mkstemps.c
   ${MUSLSRC}/temp/mktemp.c
   ${MUSLSRC}/temp/__randname.c
+  ${MUSLSRC}/termios/tcgetattr.c
+  ${MUSLSRC}/termios/tcsetattr.c
   ${MUSLSRC}/thread/__lock.c
   ${MUSLSRC}/thread/__wait.c
+  ${MUSLSRC}/thread/pthread_cleanup_push.c
+  ${MUSLSRC}/thread/pthread_setcancelstate.c
+  ${MUSLSRC}/time/clock.c
   ${MUSLSRC}/time/clock_gettime.c
+  ${MUSLSRC}/time/difftime.c
   ${MUSLSRC}/time/gettimeofday.c
   ${MUSLSRC}/time/gmtime.c
   ${MUSLSRC}/time/gmtime_r.c
@@ -800,6 +814,7 @@ add_enclave_library(
   ${MUSLSRC}/unistd/unlink.c
   ${MUSLSRC}/unistd/write.c
   ${MUSLSRC}/unistd/writev.c
+  ${MUSLSRC}/unistd/usleep.c
   ${PLATFORM_SRC})
 
 maybe_build_using_clangw(oelibc)

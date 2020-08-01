@@ -171,6 +171,11 @@ if (WIN32)
   if (NOT OE_BASH)
     message(FATAL_ERROR "Git Bash not found!")
   endif ()
+  find_program(OE_PERL perl PATHS "C:/Program Files/Git/bin"
+                                  "${GIT_DIR}/../usr/bin" NO_DEFAULT_PATH)
+  if (NOT OE_PERL)
+    message(FATAL_ERROR "Perl not found!")
+  endif ()
   if (NOT NUGET_PACKAGE_PATH)
     message(
       FATAL_ERROR
@@ -182,6 +187,12 @@ else ()
   if (NOT OE_BASH)
     message(FATAL_ERROR "Bash not found!")
   endif ()
+
+  find_program(OE_PERL perl)
+  if (NOT OE_PERL)
+    message(FATAL_ERROR "Perl not found!")
+  endif ()
+
 endif ()
 
 # See `cmake/enclave_cmake_wrappers.cmake` for wrapper functions.
